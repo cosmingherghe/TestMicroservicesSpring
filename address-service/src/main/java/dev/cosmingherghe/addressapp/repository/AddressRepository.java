@@ -9,5 +9,4 @@ import java.util.Optional;
 
 @Repository
 public interface AddressRepository extends ListCrudRepository<Address, Long> {
-    Address findByEmployeeId(Long id);
 }

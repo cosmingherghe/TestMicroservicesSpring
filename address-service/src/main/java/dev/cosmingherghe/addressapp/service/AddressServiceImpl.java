@@ -14,11 +14,10 @@ public class AddressServiceImpl implements AddressService {
     AddressRepository addressRepo;
 
     @Override
-    public AddressResponse findByEmployeeId(Long id) {
-        Address address = Optional.ofNullable(addressRepo.findByEmployeeId(id)).get();
+    public AddressResponse findById(Long id) {
+        Address address = addressRepo.findById(id).get();
         return AddressResponse.builder()
                 .id(address.getId())
-                .employeeId(address.getEmployeeId())
                 .lane1(address.getLane1())
                 .lane2(address.getLane2())
                 .city(address.getCity())

@@ -16,7 +16,6 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long employeeId;
     private String lane1;
     private String lane2;
     private String city;

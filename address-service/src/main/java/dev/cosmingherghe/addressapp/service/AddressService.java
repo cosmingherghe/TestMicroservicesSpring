@@ -6,5 +6,5 @@ import dev.cosmingherghe.addressapp.model.AddressResponse;
 import java.util.Optional;
 
 public interface AddressService {
-    AddressResponse findByEmployeeId(Long id);
+    AddressResponse findById(Long id);
 }

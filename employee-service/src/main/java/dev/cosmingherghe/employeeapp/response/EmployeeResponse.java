@@ -15,4 +15,5 @@ public class EmployeeResponse {
   private String name;
   private String email;
   private String bloodgroup;
+  private AddressResponse addressResponse;
 }

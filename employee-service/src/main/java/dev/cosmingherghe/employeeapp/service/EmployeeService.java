@@ -5,6 +5,7 @@ import dev.cosmingherghe.employeeapp.repository.EmployeeRepository;
 import dev.cosmingherghe.employeeapp.response.AddressResponse;
 import dev.cosmingherghe.employeeapp.response.EmployeeResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,14 +13,14 @@ import org.springframework.web.client.RestTemplate;
 public class EmployeeService {
     @Autowired
     EmployeeRepository employeeRepo;
-
     @Autowired
     RestTemplate restTemplate;
+    @Value("${address.base.url}")
+    private String addressBaseUrl;
 
     public EmployeeResponse getEmployeeResponseById(Long id) {
         Employee employee = employeeRepo.findById(id).get();
-        String url = "http://localhost:8082/address-app/api/v1/address/";
-        AddressResponse addressResponse = getAddressResponse(employee, url);
+        AddressResponse addressResponse = getAddressResponse(employee);
         return EmployeeResponse.builder()
                 .id(employee.getId())
                 .name(employee.getName())
@@ -28,8 +29,8 @@ public class EmployeeService {
                 .build();
     }
 
-    private AddressResponse getAddressResponse(Employee employee, String url) {
-        AddressResponse addressResponse = restTemplate.getForObject(url +"{id}", AddressResponse.class, employee.getAddressId());
+    private AddressResponse getAddressResponse(Employee employee) {
+        AddressResponse addressResponse = restTemplate.getForObject(addressBaseUrl +"{id}", AddressResponse.class, employee.getAddressId());
         return addressResponse;
     }
 }

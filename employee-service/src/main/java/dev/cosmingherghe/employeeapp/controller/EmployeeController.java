@@ -17,8 +17,8 @@ public class EmployeeController {
     EmployeeService employeeServ;
 
     @GetMapping("/employee/{id}")
-    public ResponseEntity<EmployeeResponse> getEmployeeDetails(@PathVariable("id") String id) {
-        EmployeeResponse employeeResponse = employeeServ.getEmployeeResponseById(Long.valueOf(id));
+    public ResponseEntity<EmployeeResponse> getEmployeeDetails(@PathVariable("id") Long id) {
+        EmployeeResponse employeeResponse = employeeServ.getEmployeeResponseById(id);
         return ResponseEntity.status(HttpStatus.OK).body(employeeResponse);
     }
 }

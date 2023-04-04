@@ -4,7 +4,6 @@ import dev.cosmingherghe.employeeapp.entity.Employee;
 import dev.cosmingherghe.employeeapp.repository.EmployeeRepository;
 import dev.cosmingherghe.employeeapp.response.EmployeeResponse;
 import dev.cosmingherghe.employeeapp.service.EmployeeService;
-import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -19,4 +19,5 @@ public class Employee {
     private String name;
     private String email;
     private String bloodgroup;
+    private Long addressId;
 }

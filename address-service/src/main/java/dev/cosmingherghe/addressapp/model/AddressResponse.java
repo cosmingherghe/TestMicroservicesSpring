@@ -1,15 +1,17 @@
 package dev.cosmingherghe.addressapp.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddressResponse {
     private Long id;
-    private Long employee_id;
+    private Long employeeId;
     private String lane1;
     private String lane2;
     private String city;
